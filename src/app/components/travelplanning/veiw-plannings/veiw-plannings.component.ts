@@ -10,11 +10,23 @@ import { TravelplanningService } from 'src/services/travelplanning.service';
 })
 export class VeiwPlanningsComponent implements OnInit {
   searchVal="";
+  travelPlanning: TravelPlanning;
   Listplannings:TravelPlanning[];
+  show:true;
   constructor(private ac:ActivatedRoute, private planningServ:TravelplanningService) { }
 
   ngOnInit(): void {
     this.planningServ.getAllTravelsPlanningFromServer().subscribe(res=>{this.Listplannings=res;});
   }
 
+
+  editTravelPlanning(x:TravelPlanning){
+    this.show=true;
+    this.travelPlanning=x;
+    
+  }
+  
+  editMyTravelPlanning(i :any){
+
+  }
 }

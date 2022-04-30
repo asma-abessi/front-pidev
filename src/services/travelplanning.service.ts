@@ -28,4 +28,14 @@ getAllTravelsPlanningFromServer(): Observable<TravelPlanning[]> {
 }
 
 
+getTravelPlanningById(idPlanning:number):Observable<TravelPlanning>{
+  return this.http.get<TravelPlanning>("http://localhost:8089/SpringMVC/travel/retrieve-travel/"+idPlanning);
+  }
+
+
+  updateTravelPlanning (id: number, travelPlanning: TravelPlanning): Observable<TravelPlanning> {
+   return this.http.put<TravelPlanning>('http://localhost:8089/SpringMVC/travelplanning/modify-travel¨Planning-byID/'+ id, travelPlanning,
+   this.httpOptions);
+   }
+
 }

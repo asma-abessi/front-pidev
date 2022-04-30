@@ -20,6 +20,7 @@ import { VeiwPlanningsComponent } from './components/travelplanning/veiw-plannin
 import { OpportunityComponent } from './components/opportunity/opportunity.component';
 import { AddopportunityComponent } from './components/opportunity/addopportunity/addopportunity.component';
 import { EditopportunityComponent } from './components/opportunity/editopportunity/editopportunity.component';
+import { EditplanningComponent } from './components/travelplanning/editplanning/editplanning.component';
 
 const routes: Routes = [
   
@@ -51,6 +52,7 @@ const routes: Routes = [
     OpportunityComponent,
     AddopportunityComponent,
     EditopportunityComponent,
+    EditplanningComponent,
   
   ],
   imports: [
