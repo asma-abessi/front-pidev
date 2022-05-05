@@ -25,7 +25,7 @@ export class OpportunityService {
     }
 
     addOpportunity(opportunity:Opportunity):Observable<Opportunity>{
-      return this.myHttp.post<Opportunity>("http://localhost:8089/SpringMVC/opportunity/assignopportunUser/5",opportunity,this.httpOptions);
+      return this.myHttp.post<Opportunity>("http://localhost:8089/SpringMVC/opportunity/assignopportunUser/1",opportunity,this.httpOptions);
       }
 
       getOpportunityById(idOpportunity:number):Observable<Opportunity>{
