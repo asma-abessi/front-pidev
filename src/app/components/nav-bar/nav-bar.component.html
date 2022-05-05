@@ -23,7 +23,23 @@
         </div>
 
         <!-- Search input -->
-       
+        <div class="dropdown d-inline-block ms-2 ">
+            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+                <span>Statistics</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+                <!-- item-->
+                <a class="dropdown-item" routerLink="/statistics"><i style="font-size:24px" class="fa font-size-16 align-middle me-2">&#xf080;</i>
+                    charts</a>
+               
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://www.javatpoint.com/classification-and-predication-in-data-mining"><i class="fa fa-eye font-size-16 align-middle me-2"></i>
+                    predict</a>
+            </div>
+        </div>
+        
 
         <div class="d-flex">
 
@@ -76,7 +92,7 @@
                             </div>
                         </a>
 
-                        <a href="" class="text-reset notification-item">
+                        <a routerLink="/matching" class="text-reset notification-item">
                             <div class="media d-flex">
                                 <div class="avatar-xs me-3">
                                     <span class="avatar-title bg-info rounded-circle font-size-16">
@@ -84,9 +100,9 @@
                                     </span>
                                 </div>
                                 <div class="flex-1">
-                                    <h6 class="mt-0 font-size-15 mb-1">Your item is shipped</h6>
+                                    <h6 class="mt-0 font-size-15 mb-1">Matching </h6>
                                     <div class="font-size-12 text-muted">
-                                        <p class="mb-1">It is a long established fact that a reader will</p>
+                                        <p class="mb-1">match your partner </p>
                                     </div>
                                 </div>
                             </div>

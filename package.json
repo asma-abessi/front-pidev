@@ -18,6 +18,8 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@swimlane/ngx-charts": "^20.1.0",
+    "@syncfusion/ej2-angular-charts": "^20.1.51",
     "angular-datatables": "^13.0.1",
     "datatables.net": "^1.11.3",
     "datatables.net-bs5": "^1.11.3",

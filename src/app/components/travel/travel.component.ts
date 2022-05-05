@@ -10,6 +10,8 @@ import { TravelService } from 'src/services/travel.service';
 })
 export class TravelComponent implements OnInit {
   show:true;
+  showaffectation:true;
+
 
   ListTravels:Travel[];
   travel:Travel;
@@ -44,7 +46,16 @@ export class TravelComponent implements OnInit {
   editMyTravel(i :any){
 
   }
+
+/* affectTravel(x:Travel){
+    this.showaffectation=true;
+    this.travel=x;
+    
+  }
   
+  affectMyTravel(i :any){
+
+  }*/
 
   showForm(){
     this.showAdd=true;

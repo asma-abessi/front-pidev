@@ -22,9 +22,12 @@ import { AddopportunityComponent } from './components/opportunity/addopportunity
 import { EditopportunityComponent } from './components/opportunity/editopportunity/editopportunity.component';
 import { EditplanningComponent } from './components/travelplanning/editplanning/editplanning.component';
 import { StatisticsComponent } from './components/travel/statistics/statistics.component';
-import { DataTablesModule } from 'angular-datatables';
 import { MapsComponent } from './components/maps/maps.component';
-
+import { AffectemployeeComponent } from './components/travel/affectemployee/affectemployee.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {  CategoryService, ChartModule, DataLabelService, LegendService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
+import { AddComponent } from './components/opportunity/add/add.component';
+import { MatchingComponent } from './components/travel/matching/matching.component';
 const routes: Routes = [
   
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,6 +40,10 @@ const routes: Routes = [
   {path:"view",component:VeiwPlanningsComponent},
   {path:"opportunity",component:OpportunityComponent},
   {path:"statistics",component:StatisticsComponent},
+  {path:"effectemployee",component:AffectemployeeComponent},
+  {path:"matching",component:MatchingComponent},
+  
+  
 ];
 
 @NgModule({
@@ -59,6 +66,9 @@ const routes: Routes = [
     EditplanningComponent,
     StatisticsComponent,
     MapsComponent,
+    AffectemployeeComponent,
+    AddComponent,
+    MatchingComponent,
   
   ],
   imports: [
@@ -68,10 +78,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
-    DataTablesModule,
+    NgxChartsModule,
+    ChartModule,
+   
+
   ],
 
-  providers: [],
+  providers: [CategoryService, LegendService, DataLabelService, LineSeriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

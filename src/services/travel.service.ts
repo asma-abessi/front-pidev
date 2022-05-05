@@ -43,9 +43,25 @@ export class TravelService {
         this.httpOptions);
         }
 
-        getStatisticsFromServer(): Observable<Travel[]> {
+   
+        
+        getstatisticsFromServer(): Observable<any> {
      
-          return this.myHttp.get<Travel[]>('http://localhost:8089/SpringMVC/travel/statisticnbTravelUser/');
+          return this.myHttp.get<any>('http://localhost:8089/SpringMVC/travel/statisticnbTravelUser');
         }
         
+        //***************************************************************************** */
+        getMatchedFromServer(): Observable<String[]> {
+     
+          return this.myHttp.get<String[]>('http://localhost:8089/SpringMVC/travel/getmatched');
+        }
+
+
+          AffectTravelToTraveler(idTravel:number,idUser:number ):Observable<String>{
+            return this.myHttp.post<String>("http://localhost:8089/SpringMVC/travel/AffectTravelToTraveler/"+idTravel+"/"+idUser,this.httpOptions);
+             }
+
+           GetFriend():Observable<any>{
+            return this.myHttp.get<any>("http://localhost:8089/SpringMVC/travel/retrieve-friend/5");
+            }
 }

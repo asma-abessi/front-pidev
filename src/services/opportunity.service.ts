@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Opportunity } from 'src/app/Model/Opportunity';
@@ -25,7 +25,7 @@ export class OpportunityService {
     }
 
     addOpportunity(opportunity:Opportunity):Observable<Opportunity>{
-      return this.myHttp.post<Opportunity>("http://localhost:8089/SpringMVC/opportunity/add-opportunity/",opportunity,this.httpOptions);
+      return this.myHttp.post<Opportunity>("http://localhost:8089/SpringMVC/opportunity/assignopportunUser/5",opportunity,this.httpOptions);
       }
 
       getOpportunityById(idOpportunity:number):Observable<Opportunity>{
@@ -38,4 +38,8 @@ export class OpportunityService {
          this.httpOptions);
          }
 
-}
+
+         
+    }
+
+
