@@ -28,6 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {  CategoryService, ChartModule, DataLabelService, LegendService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
 import { AddComponent } from './components/opportunity/add/add.component';
 import { MatchingComponent } from './components/travel/matching/matching.component';
+import { OpportunitystatisticComponent } from './components/travel/opportunitystatistic/opportunitystatistic.component';
 const routes: Routes = [
   
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -69,6 +70,7 @@ const routes: Routes = [
     AffectemployeeComponent,
     AddComponent,
     MatchingComponent,
+    OpportunitystatisticComponent,
   
   ],
   imports: [

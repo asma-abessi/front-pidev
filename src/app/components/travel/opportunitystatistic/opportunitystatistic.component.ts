@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Travel } from 'src/app/Model/Travel';
-import { TravelService } from 'src/services/travel.service';
-
+import { Opportunity } from 'src/app/Model/Opportunity';
+import { OpportunityService } from 'src/services/opportunity.service';
 
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+  selector: 'app-opportunitystatistic',
+  templateUrl: './opportunitystatistic.component.html',
+  styleUrls: ['./opportunitystatistic.component.css']
 })
-export class StatisticsComponent implements OnInit {
-  ListTravels:Travel[];
+export class OpportunitystatisticComponent implements OnInit {
+
+  ListOpportunity:Opportunity[];
   productSales: any[]
   productSalesMulti: any[]
   Stat:any
@@ -30,13 +30,13 @@ export class StatisticsComponent implements OnInit {
 
 
 
-  constructor(private travelServ:TravelService ) { }
+  constructor(private opportunityServ:OpportunityService ) { }
 
   ngOnInit(): void {
-    this.travelServ.getstatisticsFromServer().subscribe(res=>{
+    this.opportunityServ.getstatisticsoppFromServer().subscribe(res=>{
       this.Stat=res;
     
-      console.log("ddd"+this.Stat.map(i=>i.total));
+      console.log("hhh"+this.Stat.map(i=>i.total));
   })
   
   }
@@ -52,14 +52,4 @@ export class StatisticsComponent implements OnInit {
   onSelect(data): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
-
-totaltravels(){
-  this.travelServ.GetNbreTravel().subscribe()
-    console.log("nbr");
-
 }
- 
-}
-
-  
-

@@ -64,6 +64,10 @@ export class TravelService {
            GetFriend():Observable<any>{
             return this.myHttp.get<any>("http://localhost:8089/SpringMVC/travel/retrieve-friend/1");
             }
+
+            GetNbreTravel():Observable<Travel>{
+              return this.myHttp.get<Travel>("http://localhost:8089/SpringMVC/travel/nbr-travel");
+              }
 }
 
 ///////////////////////////////git
