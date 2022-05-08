@@ -14,7 +14,8 @@ export class StatisticsComponent implements OnInit {
   productSalesMulti: any[]
   Stat:any
   view: any[] = [700, 370];
-
+  
+  nbrTravel:number;
   // options
   showLegend: boolean = true;
   showLabels: boolean = true;
@@ -37,7 +38,9 @@ export class StatisticsComponent implements OnInit {
       this.Stat=res;
     
       console.log("ddd"+this.Stat.map(i=>i.total));
-  })
+  });
+  this.totaltravels();
+  
   
   }
 
@@ -54,7 +57,7 @@ export class StatisticsComponent implements OnInit {
   }
 
 totaltravels(){
-  this.travelServ.GetNbreTravel().subscribe()
+  this.travelServ.GetNbreTravel().subscribe(res=>{this.nbrTravel=res})
     console.log("nbr");
 
 }

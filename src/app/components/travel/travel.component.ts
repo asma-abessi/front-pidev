@@ -47,15 +47,7 @@ export class TravelComponent implements OnInit {
 
   }
 
-/* affectTravel(x:Travel){
-    this.showaffectation=true;
-    this.travel=x;
-    
-  }
-  
-  affectMyTravel(i :any){
 
-  }*/
 
   showForm(){
     this.showAdd=true;
@@ -65,11 +57,7 @@ export class TravelComponent implements OnInit {
       }
 
 
-    /*  ngOnDestroy(): void {
-        this.dtTrigger.unsubscribe();
-
-        $.fn.dataTable.ext.search.pop();
-      } */
+   
      
 
 

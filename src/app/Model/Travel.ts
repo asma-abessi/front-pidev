@@ -4,4 +4,5 @@ export class Travel{
     startDate :Date;
     endDate: Date;
     objet:string;
+   
     }
