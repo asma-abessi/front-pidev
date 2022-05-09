@@ -28,6 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {  CategoryService, ChartModule, DataLabelService, LegendService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
 import { AddComponent } from './components/opportunity/add/add.component';
 import { MatchingComponent } from './components/travel/matching/matching.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { OpportunitystatisticComponent } from './components/travel/opportunitystatistic/opportunitystatistic.component';
 const routes: Routes = [
   
@@ -82,7 +83,7 @@ const routes: Routes = [
     CommonModule,
     NgxChartsModule,
     ChartModule,
-   
+    NgxPaginationModule,
 
   ],
 

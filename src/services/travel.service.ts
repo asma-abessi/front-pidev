@@ -65,9 +65,29 @@ export class TravelService {
             return this.myHttp.get<any>("http://localhost:8089/SpringMVC/travel/retrieve-friend/1");
             }
 
-            GetNbreTravel():Observable<number>{
-              return this.myHttp.get<number>("http://localhost:8089/SpringMVC/travel/nbr-travel");
-              }
+
+
+            //******************************************************************************************************************** */
+      GetNbreTravel():Observable<number>{
+        return this.myHttp.get<number>("http://localhost:8089/SpringMVC/travel/nbr-travel");
+         }
+       GetNbreOpportunities():Observable<number>{
+             return this.myHttp.get<number>("http://localhost:8089/SpringMVC/opportunity/nbr-opportunities");
+       }
+        GetNbreEvents():Observable<number>{
+              return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-events");
+        }
+        GetNbreTravelers():Observable<number>{
+         return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Travelers");
+       }
+       GetNbreEmployee():Observable<number>{
+        return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Employee");
+        }
+       GetNbreEntreprise():Observable<number>{
+       return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Entreprise");
+      }
+
+
 }
 
 ///////////////////////////////git
