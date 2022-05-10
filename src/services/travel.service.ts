@@ -50,6 +50,12 @@ export class TravelService {
           return this.myHttp.get<any>('http://localhost:8089/SpringMVC/travel/statisticnbTravelUser');
         }
         
+
+        getTravel(id:number): Observable<Travel> {
+     
+          return this.myHttp.get<Travel>('http://localhost:8089/SpringMVC/travel/retrieve-travel/'+id);
+        }
+
         //***************************************************************************** */
         getMatchedFromServer(): Observable<String[]> {
      

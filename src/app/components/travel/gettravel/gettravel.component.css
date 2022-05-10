@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+  
+  }
+  body{
+    background-color: #ddd;
+  }   
+  .card {
+    width: 330px;
+    height: 380px;
+    margin: 50px auto;
+    filter: drop-shadow(-2px 4px 5px rgba(20, 118, 163, 0.233));
+    cursor: pointer;
+    transition: .5s;
+  }
+  .card:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(-2px 4px 8px rgba(20, 118, 163, 0.233));
+  }
+  .card_content{
+    width: inherit;
+    height: inherit;
+    position: relative;
+    background-color: rgb(252, 244, 244);
+    border-radius: 220px 0;
+    z-index: 2;   
+  }
+  .card_layout{
+    width: inherit;
+    height: inherit;
+    background-color: darkblue;
+    position: absolute;
+    top: 0;
+    border-radius: 48% 0px;
+    z-index: 1;
+  }
+  .card_icon {
+    width: 100%;
+    text-align: center;
+  }
+  .card_content ion-icon {
+    font-size: 5em;
+    margin-top: 25px;
+    color: #00f;
+  }
+  .card_content .card_title {
+    color: #00f;
+    font-family: monospace ,sans-serif;
+    font-weight: bold;
+    font-size: 1.8em;
+  }
+  .card_content .card_body {
+    max-width: 73%;
+    height: 125px;
+    margin: 27px auto 11px;
+    text-align: center;
+    overflow: hidden;
+    font-family: sans-serif;
+    line-height: 1.4;
+  }
+  .card_content .card_body span {
+    color: rgba(0, 0, 255, 0.534);
+    font-weight: bold;
+  }

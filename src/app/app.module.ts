@@ -30,6 +30,18 @@ import { AddComponent } from './components/opportunity/add/add.component';
 import { MatchingComponent } from './components/travel/matching/matching.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { OpportunitystatisticComponent } from './components/travel/opportunitystatistic/opportunitystatistic.component';
+import { CalendarComponent } from './components/travel/calendar/calendar.component';
+
+//////////////////***************calendar*************************** */
+
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { GettravelComponent } from './components/travel/gettravel/gettravel.component';
+
+
 const routes: Routes = [
   
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -44,7 +56,8 @@ const routes: Routes = [
   {path:"statistics",component:StatisticsComponent},
   {path:"effectemployee",component:AffectemployeeComponent},
   {path:"matching",component:MatchingComponent},
-  
+  {path:"calendar",component:CalendarComponent},
+  {path:"get/:id",component:GettravelComponent},
   
 ];
 
@@ -72,6 +85,8 @@ const routes: Routes = [
     AddComponent,
     MatchingComponent,
     OpportunitystatisticComponent,
+    CalendarComponent,
+    GettravelComponent,
   
   ],
   imports: [
@@ -84,6 +99,12 @@ const routes: Routes = [
     NgxChartsModule,
     ChartModule,
     NgxPaginationModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
 
   ],
 
