@@ -3,3 +3,8 @@ header{
     
     
 }
+.mck-sidebox.fade.in {
+    width: 81% !important;
+    height: 70% !important;
+    max-height: 75%!important;
+}

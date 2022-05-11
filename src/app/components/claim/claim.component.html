@@ -1,0 +1,95 @@
+
+
+    <!-- Begin Page Content -->
+    
+    <div style="margin-right: 500px;" class="container-fluid">
+    
+    
+        <!-- DataTales Example -->
+        <div  class="card shadow mb-4">
+            <div class="card-header py-3">
+            </div>
+            <div class="card-body">
+
+
+              <div>
+                <div scope="col">  <button class="btn btn-primary " (click)="showForm()">Add claim</button></div>
+          <app-addclaim (aded)="addClaim($event)" *ngIf="showAdd"></app-addclaim>
+              </div>
+
+              
+          
+                <div class="table-responsive">
+                    
+    
+    
+    
+    
+    
+    
+                    
+    
+    
+    
+                    
+                               
+    
+                               
+    
+                                <table  class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Num Claim</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Etat</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Num User</th>
+
+    
+                                      </tr>
+                                    </thead>
+                                 <tbody>
+                                      <tr *ngFor="let item of claimData 
+                                      | paginate: { itemsPerPage: tableSize, currentPage: page,totalItems: count };let i = index">
+                                        <th scope="row">{{item.idClaim}}</th>
+                                        <td>{{item.date}}</td>
+                                        <td>{{item.description}}</td>
+                                        <td>{{item.etat}}</td>
+                                        <td>{{item.subject}}</td>
+                                        <td>{{item.user.idUser}}</td>
+                                        <td><button class="btn btn-danger"(click)="deleteClaim(item.idClaim,i)">Delete</button></td>
+                                        <td><button class="btn btn-info" (click)="updateClaim(item.idClaim)" >Edit</button></td>
+                                        <td><button class="btn btn-info"(click)=" AcceptClaim(item.idClaim,i)">Accept Claim</button></td>
+   
+
+                                       
+</tr>
+          
+                                    </tbody>
+                                  </table>
+                                  
+    
+                                  <div style="margin-left: 400px;" class="d-flex justify-content-center">
+                                    <pagination-controls
+                                        previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)" >
+                                    </pagination-controls>
+                                      </div>
+    
+                                      <td><button class="btn btn-info" (click)="getClaim()">Get Claim PDF</button></td>
+
+                                  <!-- Modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

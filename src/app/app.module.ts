@@ -28,12 +28,46 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {  CategoryService, ChartModule, DataLabelService, LegendService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
 import { AddComponent } from './components/opportunity/add/add.component';
 import { MatchingComponent } from './components/travel/matching/matching.component';
+
+import { InvitationComponent } from './components/invitation/invitation.component';
+import { ClaimComponent } from './components/claim/claim.component';
+import { AddinvitationComponent } from './components/invitation/addinvitation/addinvitation.component';
+import { UpdateInvitationComponent } from './components/invitation/update-invitation/update-invitation.component';
+import { EditclaimComponent } from './components/claim/editclaim/editclaim.component';
+import { AddclaimComponent } from './components/claim/addclaim/addclaim.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+import {FullCalendarModule} from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { StatsinvitationComponent } from './components/statsinvitation/statsinvitation.component'; // a plugin!
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { environment } from '../environments/environment';
+
+import {NgxPaginationModule} from 'ngx-pagination';
 import { OpportunitystatisticComponent } from './components/travel/opportunitystatistic/opportunitystatistic.component';
+import { CalendarComponent } from './components/travel/calendar/calendar.component';
+
+//////////////////***************calendar*************************** */
+
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { GettravelComponent } from './components/travel/gettravel/gettravel.component';
+import { UsersTravelComponent } from './components/travel/users-travel/users-travel.component';
+import { GettravelPlanningsComponent } from './components/travel/users-travel/gettravel-plannings/gettravel-plannings.component';
+
+
 const routes: Routes = [
   
   {path: '', redirectTo: '/home', pathMatch: 'full' },
   {path:'home', component:DashboardComponent},
   {path:'forum', component:ForumComponent},
+  {path:'statsinvitation', component:StatsinvitationComponent},
+
   {path:'chat',component:ChatComponent},
   {path:"travel",component:TravelComponent},
   {path:"edit",component:EdittravelComponent},
@@ -43,9 +77,30 @@ const routes: Routes = [
   {path:"statistics",component:StatisticsComponent},
   {path:"effectemployee",component:AffectemployeeComponent},
   {path:"matching",component:MatchingComponent},
-  
+
+  {path:"invitation",component:InvitationComponent},
+  {path:"claim",component:ClaimComponent},
+  {path:"update-invitation/:id",component:UpdateInvitationComponent},
+
+  {path:"update-claim/:id",component:EditclaimComponent},
+  {path:"calender",component:CalendarComponent}
+
+  {path:"calendar",component:CalendarComponent},
+  {path:"get/:id",component:GettravelComponent},
+  {path:"userstravel/:idUser",component:UsersTravelComponent},
+  {path:"travel/getplan/:id",component:GettravelPlanningsComponent},
+
   
 ];
+
+
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
+
 
 @NgModule({
   declarations: [
@@ -70,7 +125,21 @@ const routes: Routes = [
     AffectemployeeComponent,
     AddComponent,
     MatchingComponent,
+    InvitationComponent,
+    ClaimComponent,
+    AddinvitationComponent,
+    UpdateInvitationComponent,
+    EditclaimComponent,
+    AddclaimComponent,
+    CalendarComponent,
+    StatsinvitationComponent
+  
+
     OpportunitystatisticComponent,
+    CalendarComponent,
+    GettravelComponent,
+    UsersTravelComponent,
+    GettravelPlanningsComponent,
   
   ],
   imports: [
@@ -82,11 +151,29 @@ const routes: Routes = [
     CommonModule,
     NgxChartsModule,
     ChartModule,
-   
+    FullCalendarModule,
+    
+    NgxPaginationModule,
+    RecaptchaFormsModule,
+    RecaptchaModule,
+    NgxPaginationModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
 
   ],
 
-  providers: [CategoryService, LegendService, DataLabelService, LineSeriesService],
+  providers: [CategoryService, LegendService, DataLabelService, LineSeriesService,
+    {
+    provide: RECAPTCHA_SETTINGS,
+    useValue: {
+      siteKey: environment.recaptcha.siteKey,
+    } as RecaptchaSettings,
+  },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

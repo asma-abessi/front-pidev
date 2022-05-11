@@ -1,0 +1,70 @@
+<form  class="form-section" [formGroup]="myForm"  (ngSubmit)="add()">
+    <h1>add Claim !</h1>
+    
+   
+
+    <div class="form-group"> 
+        <label> date</label>
+        <input type="date" class="form-control" formControlName="date">
+    </div>
+    <div class="form-group"> 
+        <label> description</label>
+        <input type="text" class="form-control"  name="description"  formControlName="description">
+    </div>
+    
+
+
+
+
+
+
+    <div class="form-group">
+        <label for="type">etat</label>
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+          <div class="form-line">
+            <select
+              class="form-control"
+              name="etat"
+              id="etat"
+              formControlName="etat">
+              <option value="true">
+                true
+              </option>
+
+              <option value="false">false</option>
+            
+
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="form-group"> 
+        <label>subject</label>
+        <input type="text" class="form-control" formControlName="subject">
+    </div>
+
+    
+  
+    
+    
+    <div class="boutonAddopportunity"><input type="submit" class="btn btn-success" value="Submit"> </div>    
+</form>
+
+
