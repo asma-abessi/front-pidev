@@ -39,7 +39,11 @@ export class OpportunityService {
          }
 
 
-         
+         getstatisticsoppFromServer(): Observable<any> {
+     
+          return this.myHttp.get<any>('http://localhost:8089/SpringMVC/opportunity/statisticnbOpportunityUser');
+        }
+        
     }
 
 

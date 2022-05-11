@@ -11,16 +11,14 @@
             
             </tr>
             </thead>
-            <tbody *ngFor="let u of Listplannings" style="color: darkblue ; font: 1em sans-serif;;">
+            <tbody *ngFor="let u of plannings" style="color: darkblue ; font: 1em sans-serif;;">
             <tr *ngIf="searchVal == '' || u.day== searchVal">
             <th scope="row">{{u.idPlanning}}</th>
             <td>{{u.day}}</td>
             <td>{{u.description}}</td>
             <td>{{u.schedule}}</td>
             
-          <td> <input type="submit" class="btn btn-primary" value="Update  " (click)="editTravelPlanning(u)" style="margin-top: 2%;" >  ...
-           <input type="submit" (click)="deleteTravelPlanning(u.idPlanning)" class="btn btn-danger" value="delete" style="margin-top: 2%;" > </td> 
-         </tr>
+        
          
                
         
@@ -36,17 +34,10 @@
          </div>
 
 
-         <section class="" *ngIf="!show" >
-     
-   
-        </section> 
-
-        <div class="edit-section"  >
-   <app-editplanning  (edited)="editMyTravelPlanning($event)"  *ngIf="show"  [TravelPlanning]="travelPlanning"></app-editplanning>
-
-        </div>
+         
        
        
      
    
+
 

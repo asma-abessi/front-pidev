@@ -1,0 +1,45 @@
+
+
+
+
+      
+      
+      
+      
+      
+      <article>
+      
+          <figure *ngFor="let u of travels ">
+            <h1> <th scope="row">{{u.idTravel}}</th></h1>
+            <figcaption>
+             
+                 <div>
+                <tr> destination  :{{u.destination}}</tr>  
+                 </div>
+                 <div>
+                  <tr> start date  : {{u.startDate}}  </tr>  
+                   </div>
+                   <div>
+                      <tr>  end date  : {{u.endDate}} </tr>  
+                    </div>
+                    <div>
+                        <tr>  end date  : {{u.objet}} </tr>  
+                      </div>
+                   
+                 
+                  
+            
+               
+                      <td><button  type="button" class="btn btn-primary" [routerLink]="['/get/',u.idTravel]"> info  </button>
+                     <div style="margin-top: 3%;">   <td><button class="btn-success" [routerLink]="['/travel/getplan/',u.idTravel]" type="button"  > see planning  </button></div>
+           
+               
+              
+                  
+            </figcaption>
+      </figure>
+        
+        </article>
+      
+        
+       

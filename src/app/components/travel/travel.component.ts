@@ -18,18 +18,25 @@ export class TravelComponent implements OnInit {
   showAdd = false; 
    searchVal="";
 
+   page: number = 1;
+   count: number = 0;
+   tableSize: number = 5;
+   tableSizes: any = [3, 6, 9, 12];
+
   constructor(private ac:ActivatedRoute, private travelServ:TravelService) { }
   
   ngOnInit(): void {
 
-    this.travelServ.getAllTravelssFromServer().subscribe(res=>{
-      this.ListTravels=res;
-      
-    console.log(this.ListTravels)
-    
-  });
+this.getliste();
   
   }
+
+private getliste(){
+  this.travelServ.getAllTravelssFromServer().subscribe(res=>{
+    this.ListTravels=res;
+  
+});
+}
  
   deleteTravel(id:number){
     this.travelServ.deleteTravelById(id).subscribe(()=>this.travelServ.getAllTravelssFromServer()
@@ -47,15 +54,7 @@ export class TravelComponent implements OnInit {
 
   }
 
-/* affectTravel(x:Travel){
-    this.showaffectation=true;
-    this.travel=x;
-    
-  }
-  
-  affectMyTravel(i :any){
 
-  }*/
 
   showForm(){
     this.showAdd=true;
@@ -65,13 +64,17 @@ export class TravelComponent implements OnInit {
       }
 
 
-    /*  ngOnDestroy(): void {
-        this.dtTrigger.unsubscribe();
-
-        $.fn.dataTable.ext.search.pop();
-      } */
+   
      
-
+      onTableDataChange(event: any) {
+        this.page = event;
+        this.getliste();
+      }
+      onTableSizeChange(event: any): void {
+        this.tableSize = event.target.value;
+        this.page = 1;
+        this.getliste();
+      }
 
 
 

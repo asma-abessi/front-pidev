@@ -20,7 +20,13 @@
            <th></th>
            </tr>
            </thead>
-           <tbody *ngFor="let u of ListTravels; let position=index" >
+           <tbody *ngFor="let u of ListTravels | paginate
+           : {
+               itemsPerPage: tableSize,
+               currentPage: page,
+               totalItems: count
+             }; let position=index" >
+
            <tr *ngIf="searchVal == '' || u.destination == searchVal || u.objet == searchVal  ">  <!-- ||u.destination.includes(searchVal)-->
            <th scope="row">{{u.idTravel}}</th>
            <td>{{u.destination}}</td>
@@ -28,13 +34,23 @@
            <td>{{u.endDate}}</td>
            <td>{{u.objet}}</td>
            <td><button (click)="deleteTravel(u.idTravel)" type="button" class="btn btn-danger">DELETE</button> <div class=""></div>
-              <td><button  type="button" class="btn btn-primary" (click)="editTravel(u)"> Edit</button> <div class=""></div>
-               <td><button  type="button" class="btn btn-success" [routerLink]="['/travel/',u.idTravel]" >add planning </button> <div class=""></div>
+              <td><button   type="button" class="btn btn-primary" (click)="editTravel(u)"> Edit</button> <div class=""></div>
+               <td><button   type="button" class="btn btn-success" [routerLink]="['/travel/',u.idTravel]" >add planning </button> <div class=""></div>
+                <td><button  type="button" class="btn btn-primary" [routerLink]="['/get/',u.idTravel]"> get travel </button> <div class=""></div>
        
            </tr>
       
            </tbody>
            </table> 
+           
+           <div class="d-flex justify-content-center">
+            <pagination-controls
+              previousLabel="Prev"
+              nextLabel="Next"
+              (pageChange)="onTableDataChange($event)"
+            >
+            </pagination-controls>
+          </div>
    
            <section class="lesFournisseur" *ngIf="!show" >
      
@@ -57,13 +73,13 @@
           
    
         <div>
-           <div scope="col" class="boutonAddtravelPlanning" >  <button class="bouton-addtravel " (click)="showForm()">Add travel</button></div>
+           <div scope="col" class="boutonAddtravelPlanning" >  <button class="btn-primary " (click)="showForm()">Add travel</button></div>
            <app-addtravel (aded)="addTravel($event)" *ngIf="showAdd"></app-addtravel>
       </div>
 
 
 
-      <div class="boutonAddtravelPlanning"><input type="submit" class="bouton-plannings"  routerLink="/view" value="See Plannings"> </div>
+      <div class="boutonAddtravelPlanning" style="margin-top: 10px;"><input type="submit" class="btn-primary"  routerLink="/view" value="See Plannings"> </div>
        </div>
 
 

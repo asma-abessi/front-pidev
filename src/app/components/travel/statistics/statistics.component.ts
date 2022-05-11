@@ -14,8 +14,16 @@ export class StatisticsComponent implements OnInit {
   productSalesMulti: any[]
   Stat:any
   view: any[] = [700, 370];
+  
+  nbrTravel:number;
+  nbropportunity:number;
+  nbrEvents:number;
+  nbrEmployee:number;
+  nbrTraveler:number;
+  nbrEntreprise:number;
 
-  // options
+
+
   showLegend: boolean = true;
   showLabels: boolean = true;
 
@@ -37,7 +45,14 @@ export class StatisticsComponent implements OnInit {
       this.Stat=res;
     
       console.log("ddd"+this.Stat.map(i=>i.total));
-  })
+  });
+  this.totaltravels();
+  this.totalopportunities();
+  this.totalEvents();
+  this.totalTraveler();
+  this.totalEmployee();
+  this.totalEntreprise();
+  
   
   }
 
@@ -53,7 +68,35 @@ export class StatisticsComponent implements OnInit {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
+totaltravels(){
+  this.travelServ.GetNbreTravel().subscribe(res=>{this.nbrTravel=res})
+    console.log("nbr");
+}
 
+totalopportunities(){
+  this.travelServ.GetNbreOpportunities().subscribe(res=>{this.nbropportunity=res})
+    console.log("nbropp");
+}
+totalEvents(){
+  this.travelServ.GetNbreEvents().subscribe(res=>{this.nbrEvents=res})
+    console.log("nbrEvents");
+
+}
+totalTraveler(){
+  this.travelServ.GetNbreTravelers().subscribe(res=>{this.nbrTraveler=res})
+    console.log("nbrEvents");
+
+}
+totalEmployee(){
+  this.travelServ.GetNbreEmployee().subscribe(res=>{this.nbrEmployee=res})
+    console.log("nbrEvents");
+
+}
+totalEntreprise(){
+  this.travelServ.GetNbreEntreprise().subscribe(res=>{this.nbrEntreprise=res})
+    console.log("nbrEvents");
+
+}
  
 }
 
