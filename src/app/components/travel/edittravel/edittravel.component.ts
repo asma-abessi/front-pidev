@@ -49,6 +49,8 @@ export class EdittravelComponent implements OnInit {
     let id = this.myForm.get('idTravel').value;
     this.Travel.destination = this.myForm.get('destination').value;
     this.Travel.objet = this.myForm.get('objet').value;
+    this.Travel.startDate = this.myForm.get('startDate').value;
+    this.Travel.endDate = this.myForm.get('endDate').value;
     console.log(this.Travel);
   this.travelServ.updateTravel(id,this.Travel).subscribe()
 

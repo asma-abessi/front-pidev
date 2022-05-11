@@ -15,12 +15,21 @@
     <div class="form-group">
         <label>End Date</label>
         <input type="date"  class="form-control"  formControlName="endDate">
-        </div> 
+    </div> 
 
+    
 
     <div class="form-group">
         <label>travel object</label>
-        <input type="text"  class="form-control" name="objet"  formControlName="objet"> 
+        <div >
+        <select name="travel object" formControlName="objet" > 
+            <option value="seminar"> seminar</option>                  
+            <option value="entreprise_visit"> entreprise visit</option> 
+            <option value="conference"> conference</option>                  
+            <option value="congrés"> congrés</option> 
+            
+        </select>
+      </div>
     </div>
     
   <div class="boutonAddtravel"><input type="submit" class="btn btn-primary" value="Submit"> </div>

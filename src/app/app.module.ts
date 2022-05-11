@@ -26,11 +26,11 @@ import { MapsComponent } from './components/maps/maps.component';
 import { AffectemployeeComponent } from './components/travel/affectemployee/affectemployee.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {  CategoryService, ChartModule, DataLabelService, LegendService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
-import { AddComponent } from './components/opportunity/add/add.component';
+
 import { MatchingComponent } from './components/travel/matching/matching.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { OpportunitystatisticComponent } from './components/travel/opportunitystatistic/opportunitystatistic.component';
-import { CalendarComponent } from './components/travel/calendar/calendar.component';
+
 
 //////////////////***************calendar*************************** */
 
@@ -58,9 +58,9 @@ const routes: Routes = [
   {path:"statistics",component:StatisticsComponent},
   {path:"effectemployee",component:AffectemployeeComponent},
   {path:"matching",component:MatchingComponent},
-  {path:"calendar",component:CalendarComponent},
+ 
   {path:"get/:id",component:GettravelComponent},
-  {path:"userstravel/:idUser",component:UsersTravelComponent},
+  {path:"userstravel",component:UsersTravelComponent},
   {path:"travel/getplan/:id",component:GettravelPlanningsComponent},
   
 ];
@@ -86,10 +86,10 @@ const routes: Routes = [
     StatisticsComponent,
     MapsComponent,
     AffectemployeeComponent,
-    AddComponent,
+
     MatchingComponent,
     OpportunitystatisticComponent,
-    CalendarComponent,
+   
     GettravelComponent,
     UsersTravelComponent,
     GettravelPlanningsComponent,
