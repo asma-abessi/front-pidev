@@ -1,0 +1,35 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Claim </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        
+        <div class="form-group">
+            <label> description</label>
+            <input type="text" class ="form-control" id = "description" [(ngModel)] = Claim.description name = "description">
+        </div>
+        <div class="form-group">
+            <label> date</label>
+            <input type="date" class ="form-control" id = "date" [(ngModel)] = Claim.date name = "date">
+        </div>
+
+        
+        
+    
+        <div class="form-group">
+            <label> subject</label>
+            <input type="text" class ="form-control" id = "subject"
+                [(ngModel)] = "Claim.subject" name = "subject">
+        </div>
+       
+
+        <div class="form-group">
+            <label>etat</label>
+            <input type="text" class ="form-control" id = "etat"
+                [(ngModel)] = "Claim.etat" name = "etat">
+        </div>
+        
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
