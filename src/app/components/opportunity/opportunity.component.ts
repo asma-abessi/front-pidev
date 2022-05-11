@@ -10,8 +10,7 @@ import { OpportunityService } from 'src/services/opportunity.service';
   styleUrls: ['./opportunity.component.css']
 })
 export class OpportunityComponent implements OnInit {
- // dtOptions: DataTables.Settings = {};
- // dtTrigger: Subject<any> = new Subject<any>();
+
  show:true;
  opportunity:Opportunity;
 
@@ -21,7 +20,7 @@ showAdd = false;
   ngOnInit(): void {
 
     this.opportunityServ.getAllOpportunities().subscribe((res:any)=>{this.Listopportunities=res;
-   //   this.dtTrigger.next(1);
+   
     });
   }
 
@@ -47,9 +46,7 @@ showAdd = false;
     
       }
 
-     // ngOnDestroy(): void {
-     //   this.dtTrigger.unsubscribe();
-     // }
+  
   }
  
 

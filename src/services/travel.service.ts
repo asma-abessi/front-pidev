@@ -71,6 +71,10 @@ export class TravelService {
             return this.myHttp.get<any>("http://localhost:8089/SpringMVC/travel/retrieve-friend/1");
             }
 
+            GetTravelByUserId():Observable<any>{
+              return this.myHttp.get<any>("http://localhost:8089/SpringMVC/travel/retrieve-user-travel/2");
+              }
+  
 
 
             //******************************************************************************************************************** */

@@ -40,6 +40,13 @@ getTravelPlanningById(idPlanning:number):Observable<TravelPlanning>{
 
    deleteTravelPlanningById(id:number){
     return this.http.delete("http://localhost:8089/SpringMVC/travelplanning/removePlanning/"+id);
-    }
+ }
+
+ GetPlanningByTravelId(id:number):Observable<any>{
+  return this.http.get<any>("http://localhost:8089/SpringMVC/travelplanning/retrieve-plannings-travel/"+id);
+  }
+
+  
+
 
 }

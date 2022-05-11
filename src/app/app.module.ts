@@ -40,6 +40,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { GettravelComponent } from './components/travel/gettravel/gettravel.component';
+import { UsersTravelComponent } from './components/travel/users-travel/users-travel.component';
+import { GettravelPlanningsComponent } from './components/travel/users-travel/gettravel-plannings/gettravel-plannings.component';
 
 
 const routes: Routes = [
@@ -58,6 +60,8 @@ const routes: Routes = [
   {path:"matching",component:MatchingComponent},
   {path:"calendar",component:CalendarComponent},
   {path:"get/:id",component:GettravelComponent},
+  {path:"userstravel/:idUser",component:UsersTravelComponent},
+  {path:"travel/getplan/:id",component:GettravelPlanningsComponent},
   
 ];
 
@@ -87,6 +91,8 @@ const routes: Routes = [
     OpportunitystatisticComponent,
     CalendarComponent,
     GettravelComponent,
+    UsersTravelComponent,
+    GettravelPlanningsComponent,
   
   ],
   imports: [
