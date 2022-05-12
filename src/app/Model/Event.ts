@@ -1,5 +1,5 @@
 export class Event{
-    idevent : number;
+    id : number;
     eventtype : string;
     numInv : number;
     minInv : number;

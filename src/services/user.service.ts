@@ -15,84 +15,65 @@ export class UserService {
     })
   }
   constructor(private myHttp : HttpClient) { }
+  currentUser:User= new User();
+    status:boolean=false;
+    MODUser(User:User){
+      this.currentUser=User;
+    }
+    UpdateUser(User:User){
+      this.currentUser=User;
+      this.status=true;
+    }
   readonly BaseURI = 'http://localhost:8089/SpringMVC';
 
  
   getAllUserssFromServer(): Observable<User[]> {
      
-    return this.myHttp.get<User[]>('http://localhost:8089/SpringMVC/user/retrieve-all-users');
+    return this.myHttp.get<User[]>(this.BaseURI+'/users');
   }
 
-  deleteUserById(id:number){
-    return this.myHttp.delete("http://localhost:8089/SpringMVC/user/remove-user/"+id);
+
+  verifyUser(email:String):Observable<User>{
+    return this.myHttp.get<User>(this.BaseURI+"/find-user-by-email/"+email);
     }
 
-    
+  deleteUserById(id:any){
+    return this.myHttp.delete(this.BaseURI+"/remove-user/"+id);
+    }
+
+    blockUser(id:any){
+      return this.myHttp.put(this.BaseURI+"/blockUser/"+id,this.httpOptions);
+    }
+
+    unblockUser(id:any){
+      return this.myHttp.put(this.BaseURI+"/unblockUser/"+id,this.httpOptions);
+    }
 
    addUser(user:User):Observable<User>{
-    return this.myHttp.post<User>("http://localhost:8089/SpringMVC/user/add-user/",user,this.httpOptions);
+    return this.myHttp.post<User>(this.BaseURI+"/saveUser/",user,this.httpOptions);
      }
 
-     getUserById(idUser:number):Observable<User>{
-       return this.myHttp.get<User>("http://localhost:8089/SpringMVC/user/retrieve-user/"+idUser);
+     getUserById(idUser:any):Observable<User>{
+       return this.myHttp.get<User>(this.BaseURI+"/user/"+idUser);
        }
  
 
-       updateUser (id: number, user: User): Observable<User> {
-        return this.myHttp.put<User>('http://localhost:8089/SpringMVC/user/modify-user-byID/'+ id, user,
+       updateUserService (user: User){
+        return this.myHttp.put<User>(this.BaseURI+'/updateUser/', user,
         this.httpOptions);
         }
 
    
+  authenticate(user:User){
+    return this.myHttp.post<User>(this.BaseURI+'/authenticate-user',user);
+  }
+  verifyPassword(user:User){
+    return this.myHttp.post<boolean>(this.BaseURI+'/verify-password-user',user);
+  }
+  resetPassword(user:User){
+    return this.myHttp.post(this.BaseURI+'/reset-password-user',user);
+  }
         
-        getstatisticsFromServer(): Observable<any> {
-     
-          return this.myHttp.get<any>('http://localhost:8089/SpringMVC/user/statisticnbUserUser');
-        }
-        
-
-        getUser(id:number): Observable<User> {
-     
-          return this.myHttp.get<User>('http://localhost:8089/SpringMVC/user/retrieve-user/'+id);
-        }
-
-        //***************************************************************************** */
-        getMatchedFromServer(): Observable<String[]> {
-     
-          return this.myHttp.get<String[]>('http://localhost:8089/SpringMVC/user/getmatched');
-        }
-
-
-          AffectUserToUserer(idUser:number ):Observable<String>{
-            return this.myHttp.post<String>("http://localhost:8089/SpringMVC/user/AffectUserToUserer/"+idUser+"/"+idUser,this.httpOptions);
-             }
-
-           GetFriend():Observable<any>{
-            return this.myHttp.get<any>("http://localhost:8089/SpringMVC/user/retrieve-friend/1");
-            }
-
-
-
-            //******************************************************************************************************************** */
-      GetNbreUser():Observable<number>{
-        return this.myHttp.get<number>("http://localhost:8089/SpringMVC/user/nbr-user");
-         }
-       GetNbreOpportunities():Observable<number>{
-             return this.myHttp.get<number>("http://localhost:8089/SpringMVC/opportunity/nbr-opportunities");
-       }
-        GetNbreEvents():Observable<number>{
-              return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-events");
-        }
-        GetNbreUserers():Observable<number>{
-         return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Userers");
-       }
-       GetNbreEmployee():Observable<number>{
-        return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Employee");
-        }
-       GetNbreEntreprise():Observable<number>{
-       return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Entreprise");
-      }
-
 
 }
 

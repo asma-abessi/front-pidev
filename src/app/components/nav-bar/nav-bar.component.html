@@ -2,7 +2,7 @@
     <div class="navbar-header">
         <div class="d-flex">
             <!-- LOGO -->
-            <div class="navbar-brand-box">
+            <div class="navbar-brand-box" [hidden]="!loggedIn">
          
                 <a href="index.html" class="logo logo-light">
                    
@@ -116,26 +116,36 @@
                     </div>
                 </div>
             </div>
-
+            <ng-container *ngIf="loggedIn">
             <div class="dropdown d-inline-block ms-2 ">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
                         alt="Header Avatar">
-                    <span class="m-3 ">User Name</span>
+                    <span class="m-3 ">{{name}}</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="dripicons-user font-size-16 align-middle me-2"></i>
-                        Profile</a>
+                    <a class="dropdown-item" href="/reset-password"><i class="dripicons-user font-size-16 align-middle me-2"></i>
+                        Change Password</a>
                    
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="dripicons-exit font-size-16 align-middle me-2"></i>
+                   
+                <a class="dropdown-item" (click)="logout()"><i class="dripicons-exit font-size-16 align-middle me-2"></i>
                         Logout</a>
                 </div>
             </div>
 
-           
+        </ng-container>
+
+        <ng-container *ngIf="!loggedIn">
+            <div class="dropdown d-inline-block ms-2 ">
+                <a class="dropdown-item" href="/login"><i class="dripicons-exit font-size-16 align-middle me-2"></i>
+                    You must login to continue</a>
+            </div>
+            
+
+        </ng-container>
 
         </div>
     </div>

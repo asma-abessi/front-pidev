@@ -1,6 +1,4 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -28,6 +26,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {  CategoryService, ChartModule, DataLabelService, LegendService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
 import { AddComponent } from './components/opportunity/add/add.component';
 import { MatchingComponent } from './components/travel/matching/matching.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { InvitationComponent } from './components/invitation/invitation.component';
 import { ClaimComponent } from './components/claim/claim.component';
@@ -45,9 +44,7 @@ import { StatsinvitationComponent } from './components/statsinvitation/statsinvi
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
 import { environment } from '../environments/environment';
 
-import {NgxPaginationModule} from 'ngx-pagination';
 import { OpportunitystatisticComponent } from './components/travel/opportunitystatistic/opportunitystatistic.component';
-import { CalendarComponent } from './components/travel/calendar/calendar.component';
 
 //////////////////***************calendar*************************** */
 
@@ -59,6 +56,15 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { GettravelComponent } from './components/travel/gettravel/gettravel.component';
 import { UsersTravelComponent } from './components/travel/users-travel/users-travel.component';
 import { GettravelPlanningsComponent } from './components/travel/users-travel/gettravel-plannings/gettravel-plannings.component';
+import { UsersListComponent } from './components/user/users-list/users-list.component';
+import { UserRoutingModule } from './components/user/user-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { UserModule } from './components/user/user.module';
+import { UserFormComponent } from './components/user/user-form/user-form.component';
+import { EventsModule } from './components/events/events.module';
+import { EventsRoutingModule } from './components/events/events-routing.module';
 
 
 const routes: Routes = [
@@ -67,7 +73,6 @@ const routes: Routes = [
   {path:'home', component:DashboardComponent},
   {path:'forum', component:ForumComponent},
   {path:'statsinvitation', component:StatsinvitationComponent},
-
   {path:'chat',component:ChatComponent},
   {path:"travel",component:TravelComponent},
   {path:"edit",component:EdittravelComponent},
@@ -83,7 +88,7 @@ const routes: Routes = [
   {path:"update-invitation/:id",component:UpdateInvitationComponent},
 
   {path:"update-claim/:id",component:EditclaimComponent},
-  {path:"calender",component:CalendarComponent}
+  {path:"calender",component:CalendarComponent},
 
   {path:"calendar",component:CalendarComponent},
   {path:"get/:id",component:GettravelComponent},
@@ -132,9 +137,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     EditclaimComponent,
     AddclaimComponent,
     CalendarComponent,
-    StatsinvitationComponent
-  
-
+    StatsinvitationComponent,
     OpportunitystatisticComponent,
     CalendarComponent,
     GettravelComponent,
@@ -152,17 +155,23 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NgxChartsModule,
     ChartModule,
     FullCalendarModule,
-    
     NgxPaginationModule,
     RecaptchaFormsModule,
     RecaptchaModule,
     NgxPaginationModule,
     NgbModalModule,
+    Ng2SearchPipeModule,
+
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+
+    UserRoutingModule,
+    UserModule,
+    EventsModule,
+    EventsRoutingModule
 
   ],
 

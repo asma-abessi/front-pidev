@@ -1,4 +1,4 @@
-<div class="vertical-menu">
+<div class="vertical-menu" [hidden]="!loggedIn">
 
     <div data-simplebar class="h-100">
 
@@ -16,8 +16,15 @@
                 </li>
                 <li>
                     <a routerLink="/users"  class="waves-effect">
-                        <i  class="material-icons"> </i>
-                        <span> users </span>
+                        <i  class="dripicons-blog"> </i>
+                        <span> Users </span>
+                    </a>
+                  
+                </li>
+                <li>
+                    <a routerLink="/events" class="waves-effect">
+                        <i class="dripicons-calendar"></i>
+                        <span> Events </span>
                     </a>
                   
                 </li>
@@ -60,13 +67,7 @@
                   
                 </li>
 
-                <li>
-                    <a  class="waves-effect">
-                        <i class="dripicons-calendar"></i>
-                        <span> Events </span>
-                    </a>
-                  
-                </li>
+                
 
                 <li>
                     <a routerLink="/claim" class="waves-effect" routerLinkActive=" mm-active">                        <i class="dripicons-mail"></i>

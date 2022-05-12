@@ -15,85 +15,50 @@ export class EventService {
     })
   }
   constructor(private myHttp : HttpClient) { }
+
+
+
   readonly BaseURI = 'http://localhost:8089/SpringMVC';
 
  
   getAllEventssFromServer(): Observable<Event[]> {
      
-    return this.myHttp.get<Event[]>('http://localhost:8089/SpringMVC/event/retrieve-all-events');
+    return this.myHttp.get<Event[]>(this.BaseURI+'/Events');
   }
 
-  deleteEventById(id:number){
-    return this.myHttp.delete("http://localhost:8089/SpringMVC/event/remove-event/"+id);
+  deleteEventById(id:any){
+    return this.myHttp.delete(this.BaseURI+"/deleteEvent/"+id);
     }
 
     
 
-   addEvent(event:Event):Observable<Event>{
-    return this.myHttp.post<Event>("http://localhost:8089/SpringMVC/event/add-event/",event,this.httpOptions);
+   addEvent(event:Event){
+    return this.myHttp.post<Event>(this.BaseURI+"/saveEvent",event,this.httpOptions);
      }
 
-     getEventById(idEvent:number):Observable<Event>{
-       return this.myHttp.get<Event>("http://localhost:8089/SpringMVC/event/retrieve-event/"+idEvent);
+     inviteUserToEvent(idUser:any,idEvent:any){
+      return this.myHttp.post(this.BaseURI+"/addUserToEvent"+idEvent+"/"+idUser,this.httpOptions);
+       }
+
+     getEventById(idEvent:any){
+       return this.myHttp.get<Event>(this.BaseURI+"/event/"+idEvent);
        }
  
 
-       updateEvent (id: number, event: Event): Observable<Event> {
-        return this.myHttp.put<Event>('http://localhost:8089/SpringMVC/event/modify-event-byID/'+ id, event,
+       updateEventService (event: Event) {
+        return this.myHttp.put<Event>(this.BaseURI+'/updateEvent', event,
         this.httpOptions);
         }
 
-   
-        
-        getstatisticsFromServer(): Observable<any> {
-     
-          return this.myHttp.get<any>('http://localhost:8089/SpringMVC/event/statisticnbEventEvent');
-        }
-        
-
-        getEvent(id:number): Observable<Event> {
-     
-          return this.myHttp.get<Event>('http://localhost:8089/SpringMVC/event/retrieve-event/'+id);
-        }
-
-        //***************************************************************************** */
-        getMatchedFromServer(): Observable<String[]> {
-     
-          return this.myHttp.get<String[]>('http://localhost:8089/SpringMVC/event/getmatched');
-        }
-
-
-          AffectEventToEventer(idEvent:number,):Observable<String>{
-            return this.myHttp.post<String>("http://localhost:8089/SpringMVC/event/AffectEventToEventer/"+idEvent+"/"+idEvent,this.httpOptions);
-             }
-
-           GetFriend():Observable<any>{
-            return this.myHttp.get<any>("http://localhost:8089/SpringMVC/event/retrieve-friend/1");
-            }
-
-
-
-            //******************************************************************************************************************** */
-      GetNbreEvent():Observable<number>{
-        return this.myHttp.get<number>("http://localhost:8089/SpringMVC/event/nbr-event");
-         }
-       GetNbreOpportunities():Observable<number>{
-             return this.myHttp.get<number>("http://localhost:8089/SpringMVC/event/nbr-opportunities");
-       }
-        GetNbreEvents():Observable<number>{
-              return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-events");
-        }
-        GetNbreEventers():Observable<number>{
-         return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Eventers");
-       }
-       GetNbreEmployee():Observable<number>{
-        return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Employee");
-        }
-       GetNbreEntreprise():Observable<number>{
-       return this.myHttp.get<number>("http://localhost:8089/SpringMVC/nbr-Entreprise");
-      }
-
-
+    currentEvent:Event;
+    status:boolean=false;
+    MODEvent(Event:Event){
+    this.currentEvent=Event;
+    }
+    UpdateEvent(Event:Event){
+    this.currentEvent=Event;
+    this.status=true;
+   }
+      
 }
 
-///////////////////////////////git
