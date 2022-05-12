@@ -1,0 +1,17 @@
+<div class="container mt-5 px-2">
+    <div class="mb-2">
+      <!-- <button class="btn btn-info" [routerLink]="['/recruter']" >Recrutements</button> -->
+    </div>
+  
+  
+    <div class="table-responsive">
+     
+    <br/>
+      <button  style="align-self: right;"  class="btn btn-success" [routerLink]="['/add-event']" >Ajouter event</button>
+  
+   <app-child-event [listEvent]="listEvent"
+                         (deleteEvent)="delete($event)"
+                         (updateEvent)="update($event)"></app-child-event>  
+    </div>
+  
+  

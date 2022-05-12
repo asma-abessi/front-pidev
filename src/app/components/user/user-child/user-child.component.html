@@ -1,0 +1,44 @@
+<div style="width: fit-content;">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" 
+    autocomplete="off" placeholder="&#61442;  Taper pour chercher..">
+  </div>
+  <br/>
+  <table class="table table-responsive table-striped table-hover table-bordered">
+      <thead>
+      <tr class="bg-light">
+      
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">BirthDate</th>
+          <th scope="col">Blocked</th>
+          
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+          <th scope="col">More Details</th>
+  
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let currentUser of listUser | filter:searchText">
+        <td>{{currentUser.id}}</td>
+        <td>{{currentUser.name}}</td>
+        <td>{{currentUser.email}}</td>
+        <td>{{currentUser.adress}}</td>
+        <td>{{currentUser.phoneNbr}}</td>
+        <td>{{currentUser.dateNaiss}}</td>
+        <td>{{currentUser.blocked}}</td>
+
+   
+        <td><a class="btn btn-danger" (click)="delete(currentUser)" >delete</a></td>
+        <td><a class="btn btn-success" (click)="update(currentUser)" >Update</a></td>
+        <td><a class="btn btn-warning" [routerLink]="['/user',currentUser.id]" >More Details</a></td>
+  
+      </tr>
+      </tbody>
+    </table>
+  
+  
+    

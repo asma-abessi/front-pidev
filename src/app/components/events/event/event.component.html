@@ -1,0 +1,18 @@
+<div class="card text-center">
+    <div class="card-header">
+      <h2 style="color: slateblue;">Event details</h2>
+    </div>
+    <div class="card-body">
+        <h4 style="color:darkcyan; font: bold;">Subject: {{event.subject}}</h4>
+      <h5 class="card-title">From {{event.datedebut}} To {{event.datefin}}</h5>
+      <h6 style="font-weight: bold;">Summary:</h6>  <p class="card-text">{{event.summary}}</p>
+      <h6 style="font-weight: bold;">Lieu:</h6>  <p class="card-text">{{event.lieu}}</p>
+      <h6 style="font-weight: bold;">Entreprise:</h6>  <p class="card-text">{{event.entrepriseName}}</p>
+      <h6 style="font-weight: bold;">Type:</h6>  <p class="card-text">{{event.eventtype}}</p>
+
+      <button class="btn btn-primary" (click)="show()">Invite users</button>
+    </div>
+    <div [hidden]="!showForm" class="card-footer text-muted">
+      ok
+    </div>
+  </div>
