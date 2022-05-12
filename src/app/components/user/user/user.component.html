@@ -15,7 +15,9 @@
                   <button class="btn btn-success m-b-2" [routerLink]="['/users']">Back</button>
                   <button class="btn btn-warning m-b-2" (click)="pdfMaker()">Download details</button>
                   
-                  <div class="m-b-25"> <img src="assets/admin.png" width="40%" class="img-radius" alt="Stock-Profile-Image"> </div>
+                  <div class="m-b-25"> <img src="../../../../assets/images/users/user.jpg" width="40%" class="img-radius" alt="Stock-Profile-Image"> </div>
+                  <h6 style="color: midnightblue;"  class="f-w-600">{{user.name}} </h6>
+
                   <button [hidden]="user.blocked" class="btn btn-danger f-w-600" (click)="blockUser()">Block</button>
                   <button [hidden]="!user.blocked" class="btn btn-danger f-w-600" (click)="unblockUser()">Unblock</button>
                   <h6 class="f-w-600">Name : {{user.name}} </h6>

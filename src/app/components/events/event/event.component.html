@@ -10,9 +10,34 @@
       <h6 style="font-weight: bold;">Entreprise:</h6>  <p class="card-text">{{event.entrepriseName}}</p>
       <h6 style="font-weight: bold;">Type:</h6>  <p class="card-text">{{event.eventtype}}</p>
 
-      <button class="btn btn-primary" (click)="show()">Invite users</button>
+      <button class="btn btn-primary" (click)="show()">Invite users</button>      
+      <button class="btn btn-primary" (click)="showInvited()">Show guests</button>
+
     </div>
     <div [hidden]="!showForm" class="card-footer text-muted">
-      ok
+        <input type="text" placeholder="Invite users by typing their email here!" name="email" id="email" class="form-control" [(ngModel)]="email" required
+                      minlength="3">
+        <button class="btn btn-primary" (click)="invite()" >Send Invitation</button>
     </div>
+    <div [hidden]="!showGuests" class="card-footer text-muted">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users ">
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phoneNbr}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+      </div>
   </div>
