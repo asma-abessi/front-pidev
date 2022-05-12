@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/Model/Event';
+import { User } from 'src/app/Model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class EventService {
      }
 
      inviteUserToEvent(idUser:any,idEvent:any){
-      return this.myHttp.post(this.BaseURI+"/addUserToEvent"+idEvent+"/"+idUser,this.httpOptions);
+      return this.myHttp.post(this.BaseURI+"/addUserToEvent/"+idEvent+"/"+idUser,this.httpOptions);
        }
 
      getEventById(idEvent:any){
@@ -48,6 +49,11 @@ export class EventService {
        updateEventService (event: Event) {
         return this.myHttp.put<Event>(this.BaseURI+'/updateEvent', event,
         this.httpOptions);
+        }
+
+
+        invited(idevent:any){
+          return this.myHttp.get<User[]>(this.BaseURI+"/invited/"+idevent);
         }
 
     currentEvent:Event;
