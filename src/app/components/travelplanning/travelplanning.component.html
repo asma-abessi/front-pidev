@@ -19,11 +19,23 @@
        
            <div class="form-group">
                <label>enter day</label>
-               <input type="text"  class="form-control"  formControlName="day">
+
+               <div style="margin-bottom: 5%;">
+               <select name="day" formControlName="day" > 
+                    <option value="Monday"> Monday</option> 
+                    <option value="Tuesday"> Tuesday</option>  
+                    <option value="Wednesday"> Wednesday</option> 
+                    <option value="Thursday"> Thursday</option>  
+                    <option value="Friday"> Friday</option> 
+                    <option value="Saturday"> Saturday</option>  
+                    <option value="sunday"> sunday</option> 
+                  
+                   </select>
+               </div>
                </div> 
        
      
-         <div class="boutonAddtravel"><input  type="submit" class="btn btn-success" value="Submit" onclick="alert('Hello\ the travel planning has been created successfully')"> </div>
+         <div style="margin-bottom: 1%;" class="boutonAddtravel"><input  type="submit" class="btn btn-success" value="Submit" onclick="alert('Hello\ the travel planning has been created successfully')"> </div>
    
          <div class=""><input type="submit" class="btn btn-primary"  routerLink="/view" value="See Plannings"> </div>
        

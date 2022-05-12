@@ -15,3 +15,4 @@ $(function() {
       inputs($(this));
     });
   });
+

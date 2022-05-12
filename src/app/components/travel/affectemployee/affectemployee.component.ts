@@ -27,6 +27,9 @@ this.myForm=new FormGroup({
    let idUser=this.myForm.get("idUser").value;
     this.travelServ.AffectTravelToTraveler(idTravel,idUser).subscribe()
     console.log("ddddd");
+    
+
+  
   }
 
 }
